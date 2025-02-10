@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Godi Day Bubba!</title>
+    <style>
+        body {
+            background-color: #f7cac9; /* Baby pink background */
+            font-family: sans-serif;
+            text-align: center;
+            margin: 0;
+            overflow: hidden; /* Prevent scrollbars for heart rain */
+        }
+
+        h1 {
+            color: #880808; /* Darker red for contrast */
+            margin-top: 50px;
+        }
+
+        button {
+            background-color: #e9967a; /* Light coral button */
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 20px; /* More rounded button */
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            transition: background-color 0.3s ease; /* Smooth transition on hover */
+            box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        }
+
+        button:hover {
+            background-color: #d57a5e; /* Darker coral on hover */
+        }
+
+        button:active { /* Add a "pressed" effect */
+            transform: translateY(2px);
+            box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+
+        #image-container {
+            display: none; /* Initially hidden */
+            margin-top: 20px;
+        }
+
+        img {
+            max-width: 200px; /* Reduced image size */
+            height: auto;
+            border-radius: 10px; /* Rounded corners for the image */
+            box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+        }
+
+        #i-love-you {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .heart {
+            position: absolute;
+            font-size: 20px; /* Heart emoji size */
+            animation: rain 5s linear infinite;
+            opacity: 0; /* Initially hidden */
+        }
+
+        @keyframes rain {
+            0% {
+                top: -20px; /* Start above the viewport */
+                opacity: 0;
+                transform: translateX(0); /* Initial horizontal position */
+            }
+            50% {
+                opacity: 1;
+            }
+            100% {
+                top: 100vh; /* Fall to the bottom */
+                opacity: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Godi Day Bubba, <span id="i-love-you">I love you ❤️</span></h1>
+
+    <button id="godiButton">Godi aa jao</button>
+
+    <div id="image-container">
+        <img src="https://i.ibb.co/yFB2wxC5/Whats-App-Image-2024-12-15-at-13-00-15-31cfe371.jpg" alt="Godi Image">
+    </div>
+
+    <script>
+        const godiButton = document.getElementById("godiButton");
+        const imageContainer = document.getElementById("image-container");
+
+        godiButton.addEventListener("click", () => {
+            imageContainer.style.display = "block"; // Show image FIRST
+
+            for (let i = 0; i < 100; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.textContent = "❤️";
+                heart.style.left = Math.random() * 100 + "vw"; // Random horizontal position
+                heart.style.animationDelay = Math.random() * 2 + "s"; // Random delay
+                document.body.appendChild(heart);
+            }
+        });
+    </script>
+
+</body>
+</html>
